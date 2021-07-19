@@ -3,6 +3,7 @@ import { View, Text, Image } from 'react-native'
 
 const Preview = (props) => {
     return (
+        
         <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
             <View style={{
                 justifyContent: 'center', alignItems: 'center',

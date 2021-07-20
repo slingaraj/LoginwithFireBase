@@ -6,6 +6,7 @@ const Login = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showLoading, setShowLoading] = useState(false);
+    
 
     const login = async () => {
 
@@ -38,6 +39,9 @@ const Login = (props) => {
             alignItems: 'center',
             flex: 1
         }}>
+           
+
+
             <TextInput
                 style={{
                     backgroundColor: 'lightgray',
@@ -100,18 +104,31 @@ const Login = (props) => {
                             }
                         }>Login</Text>
                 }
-               
+
 
             </TouchableOpacity>
 
             <TouchableOpacity
-            onPress={()=>props.navigation.navigate('Register')}
+                onPress={() => props.navigation.navigate('Register')}
                 style={{
                     marginTop: 30,
                 }}>
                 <Text style={{
                     color: 'red'
                 }}>Don't Have an Account ? Login Here</Text>
+
+
+            </TouchableOpacity>
+            <TouchableOpacity
+                onPress={() => props.navigation.navigate('MobileAuth')}
+                style={{
+                    marginTop: 30,
+                }}>
+                <Text style={{
+                    color: 'red'
+                }}>Login With OTP</Text>
+
+
             </TouchableOpacity>
 
 

@@ -71,7 +71,7 @@
 // }
 
 import React, { useState } from 'react'
-import { View, Text,TextInput,TouchableOpacity } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import firestore from '@react-native-firebase/firestore';
 
 
@@ -84,42 +84,42 @@ const Home = () => {
     const [descriptionShow, setDescriptionShow] = useState('')
 
 
-    const upload =async () => {
+    const upload = async () => {
 
-        if(hotelName == ""){
+        if (hotelName == "") {
             alert("enter Hotel Name")
         }
-        if(description == ""){
+        if (description == "") {
             alert('enter Hotel Desc')
         }
         firestore().collection('post').add({
-            hotelNameServer :hotelName,
-            desc:description
-        }).then((val)=>{
+            hotelNameServer: hotelName,
+            desc: description
+        }).then((val) => {
             console.log(val);
             alert("hotel Added Successfully")
-        }).catch((e)=>{
+        }).catch((e) => {
             console.log(e);
         })
     }
 
-    const getData =async () => {
-        let data =  await firestore().collection('post').get();
+    const getData = async () => {
+        let data = await firestore().collection('post').get();
         //  console.log(data);
-         let datanew =data.forEach(item=>{
+        let datanew = data.forEach(item => {
             //  console.log(item);
-             console.log(item._data.hotelNameServer);
-             setHotelNameShow(item._data.hotelNameServer)
-             setDescriptionShow(item._data.desc)
-         })
+            console.log(item._data.hotelNameServer);
+            setHotelNameShow(item._data.hotelNameServer)
+            setDescriptionShow(item._data.desc)
+        })
     }
 
 
     return (
         <View style={{
-            justifyContent:'center',
-            flex:1,
-            alignItems:'center'
+            justifyContent: 'center',
+            flex: 1,
+            alignItems: 'center'
         }}>
             <TextInput
                 style={{
